@@ -280,6 +280,15 @@
   }
   @media(min-width:900px){.hero-in{padding-inline:20px}}
   .header{position:-webkit-sticky;position:sticky;top:0}
+
+  /* ---- v4: header text gap, bigger photo, reg no ---- */
+  .brand>span:last-child{display:flex;flex-direction:column;gap:2px;min-width:0}
+  .brand-name,.brand-sub{display:block;line-height:1.2}
+  .reg-no{font-family:var(--mono)}
+  @media(max-width:639px){
+    .photo-frame{max-width:min(100%,400px);margin:0 auto}
+    .photo-frame img{aspect-ratio:4/4.6}
+  }
 </style>
 </head>
 <body>
@@ -363,8 +372,8 @@
         </div>
         <div class="record">
           <div>
-            <span class="mono">Field Record</span>
-            <strong>Digital Survey</strong>
+            <span class="mono">Govt. Reg. No.</span>
+            <strong class="reg-no" data-reg-no>যোগাযোগে যাচাই করুন</strong>
           </div>
           <div class="role-badge">Digital Surveyor</div>
         </div>
@@ -557,5 +566,13 @@
   <span class="wa-text"><b>Live chat · Rakib</b><span>WhatsApp এ মেসেজ দিন</span></span>
 </a>
 
+<script>
+  /* Govt. Reg. No. — nicher quote er bhitore number boshan, duto page e ekshathe bodle jabe. */
+  (function(){
+    var REG_NO = "";
+    if (!REG_NO) return;
+    document.querySelectorAll('[data-reg-no]').forEach(function(el){ el.textContent = REG_NO; });
+  })();
+</script>
 </body>
 </html>
