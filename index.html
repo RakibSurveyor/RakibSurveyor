@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Rakib Hussain — ডিজিটাল ভূমি জরিপ ও পরিমাপ</title>
+<meta name="description" content="রাকিব হুসাইন — ডিজিটাল ভূমি জরিপ, পেন্টাগ্রাফ নকশা, জমির মাপজোখ ও মৌজা ম্যাপ। আধুনিক প্রযুক্তিতে নির্ভুল জরিপ ও বিশ্বস্ত সেবা। WhatsApp: 01616355160" />
+<meta name="theme-color" content="#0057B7" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#FAFAFA; --card:#FFFFFF; --fg:#2D2E2E; --muted:#6B7280;
+    --blue:#0057B7; --orange:#FF5F00; --line:#E2E6EC;
+    --heading:"Hind Siliguri","Space Grotesk",system-ui,sans-serif;
+    --body:"Inter","Hind Siliguri",system-ui,sans-serif;
+    --mono:"Space Grotesk",ui-monospace,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:64px;overflow-x:hidden}
+  body{
+    margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);
+    font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;
+    overflow-x:hidden;max-width:100%;
+  }
+  h1,h2,h3{font-family:var(--heading);margin:0;line-height:1.2;letter-spacing:-.01em}
+  p{margin:0}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  .wrap{width:100%;max-width:1080px;margin:0 auto;padding:0 20px}
+  .mono{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.16em;color:var(--muted)}
+  .grid-bg{
+    background-image:linear-gradient(to right,rgba(226,230,236,.75) 1px,transparent 1px),
+                     linear-gradient(to bottom,rgba(226,230,236,.75) 1px,transparent 1px);
+    background-size:24px 24px;
+  }
+
+  /* header */
+  .header{position:sticky;top:0;z-index:40;background:rgba(250,250,250,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .header-in{display:flex;align-items:center;justify-content:space-between;gap:16px;height:62px}
+  .brand{display:flex;align-items:center;gap:10px;min-width:0}
+  .monogram{width:34px;height:34px;display:grid;place-items:center;border:1px solid rgba(0,87,183,.4);background:rgba(0,87,183,.05);color:var(--blue);font-family:var(--mono);font-size:12px;font-weight:600}
+  .avatar{width:40px;height:40px;border-radius:50%;overflow:hidden;flex:0 0 auto;box-shadow:0 0 0 2px rgba(0,87,183,.22),0 0 0 4px var(--bg)}
+  .avatar img{width:100%;height:100%;object-fit:cover;object-position:50% 26%}
+  .header-actions{display:flex;align-items:center;gap:8px}
+  .menu-btn{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--fg);cursor:pointer;box-shadow:0 2px 8px -4px rgba(0,0,0,.25)}
+  .menu-btn svg{width:20px;height:20px;stroke:currentColor;stroke-width:1.8;fill:none}
+  .mobile-nav{display:none;border-top:1px solid var(--line);background:var(--bg)}
+  .mobile-nav.open{display:block}
+  .mobile-nav .wrap{display:flex;flex-direction:column}
+  .mobile-nav a{display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid rgba(0,0,0,.07);font-family:var(--heading);font-size:15px;font-weight:600;color:var(--fg)}
+  .mobile-nav a:last-child{border-bottom:0}
+  .mobile-nav a span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--muted)}
+  .brand-name{font-family:var(--mono);font-size:13px;font-weight:600;line-height:1.2;white-space:nowrap}
+  .brand-sub{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+  .nav{display:none;gap:26px}
+  .nav a{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.16em;color:var(--muted);transition:color .2s}
+  .nav a:hover{color:var(--fg)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--mono);font-weight:600;font-size:12.5px;letter-spacing:.02em;padding:13px 20px;border:1px solid transparent;border-radius:999px;transition:transform .2s,opacity .2s,background .2s,color .2s}
+  .btn:hover{transform:translateY(-1px)}
+  .btn-primary{background:var(--blue);color:#fff}
+  .btn-primary:hover{opacity:.9}
+  .btn-ghost{background:var(--card);border-color:var(--line);color:var(--fg)}
+  .btn-ghost:hover{border-color:rgba(0,87,183,.45);color:var(--blue)}
+  .btn-light{background:#fff;color:var(--fg)}
+  .btn-light:hover{opacity:.9}
+  .btn-outline{border-color:rgba(255,255,255,.45);color:#fff}
+  .btn-outline:hover{background:rgba(255,255,255,.12)}
+  .btn-sm{padding:9px 14px;font-size:11px}
+  .header .btn-sm span.long{display:none}
+
+  /* hero */
+  .hero{position:relative;border-bottom:1px solid var(--line);overflow:hidden}
+  .hero-bg{position:absolute;inset:0;opacity:.6}
+  .hero-in{position:relative;display:flex;flex-direction:column;gap:24px;padding:24px 0 48px}
+  .hero-head{order:1;min-width:0}
+  .hero-media{order:2;min-width:0}
+  .hero-copy{order:3;min-width:0}
+  .photo-frame{position:relative;max-width:280px;margin:0 auto;border:1px solid var(--line);background:var(--card);padding:6px;border-radius:20px;overflow:hidden;box-shadow:0 24px 60px -30px rgba(0,0,0,.45)}
+  .photo-frame img{width:100%;aspect-ratio:4/4.5;object-fit:cover;object-position:50% 30%;background:#EEF1F4}
+  .corner{display:none}
+  .c-tl{top:-1px;left:-1px;border-right:0;border-bottom:0}
+  .c-tr{top:-1px;right:-1px;border-left:0;border-bottom:0}
+  .c-bl{bottom:-1px;left:-1px;border-right:0;border-top:0}
+  .c-br{bottom:-1px;right:-1px;border-left:0;border-top:0}
+  .record{margin-top:12px;border:1px solid var(--line);background:var(--card);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 14px;padding:12px 16px;border-radius:14px;box-shadow:0 6px 18px -12px rgba(0,0,0,.25)}
+  .record strong{display:block;font-family:var(--mono);font-size:13.5px;font-weight:600}
+  .record .val{font-family:var(--mono);font-size:14px;font-weight:600;color:var(--blue);text-align:right}
+  .pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--card);padding:7px 12px;margin-bottom:16px;border-radius:999px;box-shadow:0 2px 8px -4px rgba(0,0,0,.2)}
+  .dot{width:6px;height:6px;border-radius:50%;background:var(--orange)}
+  .pill span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg)}
+  .eyebrow{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+  h1{font-size:clamp(1.45rem,6.6vw,3.4rem);font-weight:700;line-height:1.18}
+  h1 .blue{color:var(--blue)}
+  .lead{margin-top:14px;font-size:13.5px;color:var(--muted);max-width:34rem}
+  .lead b{color:var(--fg);font-weight:600}
+  .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+  .marks{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:30px}
+  .mark{display:flex;align-items:center;gap:9px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:11px 12px;box-shadow:0 6px 16px -14px rgba(0,0,0,.35);transition:border-color .2s}
+  .mark:hover{border-color:rgba(0,87,183,.35)}
+  .mark::before{content:"";flex:0 0 auto;width:26px;height:26px;border-radius:50%;background:rgba(0,87,183,.1) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230057B7' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center/13px 13px no-repeat}
+  .mark b{display:block;font-family:var(--mono);font-size:10.5px;font-weight:500;letter-spacing:.04em}
+  .mark i{display:block;font-style:normal;font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+  .role-badge{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);background:rgba(0,87,183,.06);border:1px solid rgba(0,87,183,.22);padding:6px 10px;border-radius:999px;white-space:nowrap}
+
+  /* sections */
+  section{position:relative}
+  .sec{padding:56px 0}
+  .sec-card{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .sec-head{display:flex;flex-direction:column;gap:10px;margin-bottom:30px}
+  h2{font-size:clamp(1.6rem,6vw,2.25rem);font-weight:700}
+  .sec-note{font-size:14px;color:var(--muted);max-width:26rem}
+  .services{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 30px -24px rgba(0,0,0,.35)}
+  .service{background:var(--card);padding:22px;transition:background .25s}
+  .service:hover{background:rgba(0,87,183,.03)}
+  .service-top{display:flex;align-items:flex-start;justify-content:space-between}
+  .service svg{width:22px;height:22px;stroke:var(--blue);stroke-width:1.5;fill:none}
+  .service .no{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--muted)}
+  .service h3{font-size:17px;font-weight:600;margin-top:20px}
+  .service .en{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin-top:4px}
+  .service p{font-size:13.5px;color:var(--muted);margin-top:10px}
+  .rule{height:1px;width:30px;background:var(--line);margin-top:20px;transition:width .3s,background .3s}
+  .service:hover .rule{width:58px;background:var(--orange)}
+
+  .about{display:grid;gap:26px}
+  .cert{display:flex;gap:14px;align-items:flex-start;margin-top:24px;padding:16px;border:1px solid rgba(0,87,183,.22);background:rgba(0,87,183,.05);border-radius:16px;box-shadow:0 12px 28px -24px rgba(0,87,183,.7)}
+  .cert .seal{flex:0 0 auto;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--blue);box-shadow:0 10px 20px -10px rgba(0,87,183,.7)}
+  .cert .seal svg{width:21px;height:21px;stroke:#fff;stroke-width:1.6;fill:none}
+  .cert .k{font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue)}
+  .cert b{display:block;font-family:var(--heading);font-size:17px;font-weight:700;line-height:1.35;margin-top:3px}
+  .cert p{font-size:12.5px;color:var(--muted);margin-top:4px}
+  .hero-cert{margin-top:0;max-width:25rem;background:rgba(255,255,255,.92)}
+  .hero-name{font-family:var(--heading);font-size:clamp(18px,5.2vw,38px);font-weight:700;line-height:1.3;letter-spacing:-.01em;margin:0;overflow-wrap:anywhere}
+  .hero-role{font-family:var(--heading);font-size:12px;font-weight:600;line-height:1.45;color:var(--muted);margin:6px 0 14px}
+  .hero-cert{padding:9px 11px;gap:9px;align-items:center}
+  .hero-cert .seal{width:26px;height:26px}
+  .hero-cert .seal svg{width:14px;height:14px}
+  .hero-cert .k{font-size:8px}
+  .hero-cert b{font-size:11.5px;margin-top:3px}
+  @media(min-width:640px){.hero-name{font-size:38px}.hero-role{font-size:15px}}
+  .points{display:grid;gap:11px;margin:24px 0 0;padding:0;list-style:none}
+  .points li{display:flex;gap:9px;font-size:14.5px}
+  .check{flex:0 0 auto;width:16px;height:16px;margin-top:4px;border:1.5px solid var(--blue);position:relative}
+  .check::after{content:"";position:absolute;left:4px;top:1px;width:5px;height:9px;border-right:1.5px solid var(--blue);border-bottom:1.5px solid var(--blue);transform:rotate(40deg)}
+  .quote{border-left:2px solid var(--orange);background:#F4F7FA;padding:16px 18px;margin-top:26px;border-radius:0 14px 14px 0}
+  .quote strong{font-family:var(--heading);font-size:17px;font-weight:600;display:block}
+  .quote span{display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+
+  .steps{display:grid;gap:12px;margin-top:24px}
+  .step{position:relative;overflow:hidden;border:1px solid var(--line);background:var(--bg);border-radius:16px;padding:16px;transition:border-color .2s ease}
+  .step:hover{border-color:rgba(0,87,183,.35)}
+  .step .top{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between}
+  .step .icon{width:44px;height:44px;display:grid;place-items:center;border:1px solid var(--line);background:var(--card);border-radius:12px;box-shadow:0 6px 16px -12px rgba(0,0,0,.35)}
+  .step svg{width:19px;height:19px;stroke:var(--blue);stroke-width:1.5;fill:none}
+  .step .no{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--orange)}
+  .step h3{position:relative;z-index:2;font-size:16px;font-weight:600;line-height:1.35;margin-top:15px}
+  .step p{position:relative;z-index:2;font-size:13px;line-height:1.65;color:var(--muted);margin-top:6px}
+  .step .ghost{position:absolute;right:6px;bottom:-10px;font-family:var(--display);font-size:52px;font-weight:700;line-height:1;color:var(--line);opacity:.8;font-family:var(--heading);pointer-events:none;user-select:none}
+
+  .contact{background:var(--blue);color:#fff;position:relative;overflow:hidden}
+  .contact-bg{position:absolute;inset:0;opacity:.12;
+    background-image:linear-gradient(to right,rgba(255,255,255,.6) 1px,transparent 1px),
+                     linear-gradient(to bottom,rgba(255,255,255,.6) 1px,transparent 1px);
+    background-size:12px 12px}
+  .contact-in{position:relative;padding:56px 0}
+  .contact .eyebrow{color:rgba(255,255,255,.72)}
+  .contact h2{color:#fff}
+  .contact .lead{color:rgba(255,255,255,.82)}
+  .info{border:1px solid rgba(255,255,255,.22);margin-top:30px;border-radius:18px;overflow:hidden;box-shadow:0 18px 40px -28px rgba(0,0,0,.6)}
+  .info-row{display:flex;gap:12px;padding:15px 18px;border-bottom:1px solid rgba(255,255,255,.22)}
+  .info-row:last-child{border-bottom:0}
+  .info-row svg{width:16px;height:16px;stroke:#fff;stroke-width:1.5;fill:none;flex:0 0 auto;margin-top:3px}
+  .info-row .k{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+  .info-row .v{font-family:var(--mono);font-size:14px;font-weight:600;margin-top:2px}
+
+  footer{background:var(--bg);padding:34px 0}
+  .foot-top{display:flex;flex-direction:column;gap:18px}
+  .foot-links{display:flex;flex-wrap:wrap;gap:10px 22px}
+  .foot-links a{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .foot-links a:hover{color:var(--fg)}
+  .foot-bottom{display:flex;flex-direction:column;gap:6px;border-top:1px solid var(--line);margin-top:22px;padding-top:16px}
+  .foot-bottom p{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+  /* floating whatsapp */
+  .wa-float{position:fixed;right:14px;bottom:16px;z-index:50;display:flex;align-items:center;gap:11px;
+    background:rgba(255,255,255,.96);border:1px solid var(--line);border-radius:999px;padding:6px;
+    box-shadow:0 14px 34px -14px rgba(0,0,0,.4);backdrop-filter:blur(10px);transition:transform .2s}
+  .wa-float:hover{transform:translateY(-2px)}
+  .wa-icon{position:relative;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:var(--blue);flex:0 0 auto;box-shadow:0 10px 20px -8px rgba(0,87,183,.6)}
+  .wa-icon svg{width:20px;height:20px;stroke:#fff;stroke-width:1.8;fill:none}
+  .wa-icon .live{position:absolute;top:-1px;right:-1px;width:14px;height:14px;border-radius:50%;background:var(--orange);border:2px solid #fff}
+  .wa-icon .pulse{position:absolute;top:-1px;right:-1px;width:14px;height:14px;border-radius:50%;background:var(--orange);opacity:.6;animation:waPulse 1.9s ease-out infinite}
+  @keyframes waPulse{0%{transform:scale(1);opacity:.55}100%{transform:scale(2.3);opacity:0}}
+  .wa-text{padding-right:12px}
+  .wa-text b{display:block;font-family:var(--mono);font-size:11.5px;font-weight:600;line-height:1.2}
+  .wa-text span{display:block;font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+  @media(max-width:639px){.wa-text{display:none}.actions{flex-direction:column;align-items:stretch}.actions .btn{width:100%}}
+
+  @media(min-width:640px){
+    .header .btn-sm span.long{display:inline}
+    .header .btn-sm span.short{display:none}
+    .menu-btn{display:none}
+    .mobile-nav{display:none!important}
+    .marks{grid-template-columns:repeat(2,1fr)}
+    .photo-frame{max-width:none;margin:0}
+    .services{grid-template-columns:1fr 1fr}
+    .steps{grid-template-columns:repeat(3,1fr);gap:18px}
+    .step{padding:20px}
+    .foot-top{flex-direction:row;align-items:center;justify-content:space-between}
+    .foot-bottom{flex-direction:row;align-items:center;justify-content:space-between}
+    .sec{padding:72px 0}
+    .contact-in{padding:76px 0}
+  }
+  @media(min-width:900px){
+    .nav{display:flex}
+    .hero-in{display:grid;grid-template-columns:1.05fr .95fr;gap:22px 56px;align-items:center;padding:64px 0 72px}
+    .hero-head{grid-column:1;grid-row:1;align-self:end;order:0}
+    .hero-media{grid-column:2;grid-row:1 / span 2;align-self:center;order:0}
+    .hero-copy{grid-column:1;grid-row:2;align-self:start;order:0}
+    .photo-frame{max-width:none;margin:0}
+    .photo-frame img{aspect-ratio:4/5}
+    .lead{font-size:16px;margin-top:18px}
+    .about{grid-template-columns:1fr}
+    .contact-cols{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+    .info{margin-top:0}
+    .sec-head{flex-direction:row;align-items:flex-end;justify-content:space-between}
+  }
+
+  /* ---- mobile responsive fixes ---- */
+  html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  .grid>*,.marks>*,.services>*,.steps>*,.about>*,.contact-cols>*{min-width:0}
+  .mark{min-width:0}
+  .mark b,.mark i{overflow-wrap:anywhere}
+  .info-row>div,.cert>div,.tl li>div,.idrow{min-width:0}
+  .info-row .v{overflow-wrap:anywhere}
+  .foot-links a{padding:6px 0;display:inline-block}
+  @media(max-width:639px){
+    footer{padding-bottom:96px}
+    .mark{padding:10px;gap:8px}
+    .mark b{font-size:11px}
+    .mark i{font-size:9px}
+    .btn{min-height:46px}
+    .service{padding:20px 18px}
+    .steps{gap:12px}
+    .photo-frame img{aspect-ratio:4/4}
+    .wa-float{right:12px;bottom:calc(14px + env(safe-area-inset-bottom))}
+  }
+  @media(max-width:359px){
+    .wrap{padding:0 16px}
+    .brand-sub{display:none}
+    .marks{grid-template-columns:1fr}
+    .header-in{gap:8px}
+    .contact .btn{font-size:12px;padding:13px 14px}
+    .stat b{font-size:17px}
+  }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="wrap header-in">
+    <a class="brand" href="#top">
+      <span class="avatar"><img src="https://media.base44.com/images/public/user_6ac938ac1f92c514e51e5ff0/bac51927db9d8f3dfab5bcf545d352eb_image.png" alt="Rakib Hussain" /></span>
+      <span>
+        <span class="brand-name">Rakib Hussain</span>
+        <span class="brand-sub">Land Surveyor</span>
+      </span>
+    </a>
+    <nav class="nav">
+      <a href="#services">Services</a>
+      <a href="about.html">About</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <a class="btn btn-primary btn-sm" href="https://wa.me/8801616355160?text=%E0%A6%86%E0%A6%B8%E0%A6%B8%E0%A6%BE%E0%A6%B2%E0%A6%BE%E0%A6%AE%E0%A7%81%20%E0%A6%86%E0%A6%B2%E0%A6%BE%E0%A6%87%E0%A6%95%E0%A7%81%E0%A6%AE%2C%20%E0%A6%86%E0%A6%AE%E0%A6%BF%20%E0%A6%9C%E0%A6%AE%E0%A6%BF%E0%A6%B0%20%E0%A6%9C%E0%A6%B0%E0%A6%BF%E0%A6%AA%20%E0%A6%95%E0%A6%B0%E0%A6%BE%E0%A6%A4%E0%A7%87%20%E0%A6%9A%E0%A6%BE%E0%A6%87%E0%A5%A4" target="_blank" rel="noopener">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.5 8.5 0 0 1-12.3 7.6L3 21l1.9-5.7A8.5 8.5 0 1 1 21 11.5Z"/></svg>
+        <span class="long">WhatsApp</span><span class="short">Chat</span>
+      </a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile-nav" id="mobileNav">
+    <div class="wrap">
+      <a href="#services">Services <span>01</span></a>
+      <a href="about.html">About <span>02</span></a>
+      <a href="#process">Process <span>03</span></a>
+      <a href="#contact">Contact <span>04</span></a>
+    </div>
+  </div>
+</header>
+<script>
+  (function () {
+    var b = document.getElementById('menuBtn'), n = document.getElementById('mobileNav');
+    if (!b || !n) return;
+    b.addEventListener('click', function () {
+      var open = n.classList.toggle('open');
+      b.setAttribute('aria-expanded', open ? 'true' : 'false');
+      b.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    });
+    n.addEventListener('click', function (e) {
+      if (e.target.closest('a')) {
+        n.classList.remove('open');
+        b.setAttribute('aria-expanded', 'false');
+      }
+    });
+  })();
+</script>
+
+<main id="top">
+  <section class="hero">
+    <div class="hero-bg grid-bg"></div>
+    <div class="wrap hero-in">
+
+      <div class="hero-head">
+        <div class="pill"><span class="dot"></span><span>সারা বাংলাদেশে জরিপ সেবা</span></div>
+        <h2 class="hero-name">সার্ভেয়ার রাকিব হুসাইন</h2>
+        <p class="hero-role">ভূমি জরিপ বিশেষজ্ঞ · পেন্টাগ্রাফ ও মৌজা ম্যাপ</p>
+        <div class="cert hero-cert">
+          <span class="seal"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M8.2 13.5 7 22l5-3 5 3-1.2-8.5"/></svg></span>
+          <div>
+            <span class="k">Govt. Certified</span>
+            <b>সরকারি সনদ প্রাপ্ত Surveyor / আমিন</b>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-media">
+        <div class="photo-frame">
+          <span class="corner c-tl"></span><span class="corner c-tr"></span>
+          <span class="corner c-bl"></span><span class="corner c-br"></span>
+          <img src="https://media.base44.com/images/public/user_6ac938ac1f92c514e51e5ff0/bac51927db9d8f3dfab5bcf545d352eb_image.png" alt="সার্ভেয়ার রাকিব হুসাইন টোটাল স্টেশনে জমি জরিপ করছেন" />
+        </div>
+        <div class="record">
+          <div>
+            <span class="mono">Field Record</span>
+            <strong>Total Station Survey</strong>
+          </div>
+          <div class="role-badge">Digital Surveyor</div>
+        </div>
+      </div>
+
+      <div class="hero-copy">
+        <h1>নির্ভুল ভূমি জরিপ,<br><span class="blue">ডিজিটাল ম্যাপে</span> নিশ্চিন্ততা।</h1>
+        <p class="lead">জমির মাপজোখ, পেন্টাগ্রাফ নকশা আর মৌজা ম্যাপ — আধুনিক প্রযুক্তিতে নির্ভুল জরিপ ও বিশ্বস্ত সেবা। <b>Precision measurement, trusted service.</b></p>
+        <div class="actions">
+          <a class="btn btn-primary" href="https://wa.me/8801616355160?text=%E0%A6%86%E0%A6%B8%E0%A6%B8%E0%A6%BE%E0%A6%B2%E0%A6%BE%E0%A6%AE%E0%A7%81%20%E0%A6%86%E0%A6%B2%E0%A6%BE%E0%A6%87%E0%A6%95%E0%A7%81%E0%A6%AE%2C%20%E0%A6%86%E0%A6%AE%E0%A6%BF%20%E0%A6%9C%E0%A6%AE%E0%A6%BF%E0%A6%B0%20%E0%A6%9C%E0%A6%B0%E0%A6%BF%E0%A6%AA%20%E0%A6%95%E0%A6%B0%E0%A6%BE%E0%A6%A4%E0%A7%87%20%E0%A6%9A%E0%A6%BE%E0%A6%87%E0%A5%A4" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.5 8.5 0 0 1-12.3 7.6L3 21l1.9-5.7A8.5 8.5 0 1 1 21 11.5Z"/></svg>
+            WhatsApp এ যোগাযোগ
+          </a>
+          <a class="btn btn-ghost" href="#services">সার্ভিস দেখুন →</a>
+        </div>
+        <div class="marks">
+          <div class="mark"><b>Total Station</b><i>Verified</i></div>
+          <div class="mark"><b>Pentagraph</b><i>Verified</i></div>
+          <div class="mark"><b>Mouza Map</b><i>Verified</i></div>
+          <div class="mark"><b>Digital Survey</b><i>Verified</i></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="services" class="sec sec-card">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <div class="eyebrow">Geospatial Services</div>
+          <h2>আমাদের সার্ভিস</h2>
+        </div>
+        <p class="sec-note">জমি সংক্রান্ত প্রতিটি কাজে নির্ভুল তথ্য ও ডিজিটাল ডকুমেন্টেশন — এক জায়গায়।</p>
+      </div>
+      <div class="services">
+        <div class="service">
+          <div class="service-top">
+            <svg viewBox="0 0 24 24"><path d="M3 20h18M6 20V9l6-4 6 4v11M9 20v-5h6v5"/></svg>
+            <span class="no">01</span>
+          </div>
+          <h3>ডিজিটাল ভূমি জরিপ ও পরিমাপ</h3>
+          <div class="en">Digital Land Survey</div>
+          <p>আধুনিক Total Station ও GPS দিয়ে জমির প্রতিটি বিন্দুর নির্ভুল পরিমাপ।</p>
+          <div class="rule"></div>
+        </div>
+        <div class="service">
+          <div class="service-top">
+            <svg viewBox="0 0 24 24"><path d="M12 3v18M4 7l8-4 8 4M4 7v10l8 4 8-4V7"/></svg>
+            <span class="no">02</span>
+          </div>
+          <h3>পেন্টাগ্রাফে জমির নকশা</h3>
+          <div class="en">Pentagraph Map</div>
+          <p>সরকারি নকশার সাথে মিলিয়ে জমির সীমানা ও দাগের পেন্টাগ্রাফ ড্রয়িং।</p>
+          <div class="rule"></div>
+        </div>
+        <div class="service">
+          <div class="service-top">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2.5"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>
+            <span class="no">03</span>
+          </div>
+          <h3>জমির মাপজোখ ও আয়তন নির্ণয়</h3>
+          <div class="en">Area &amp; Volume</div>
+          <p>শতাংশ, কাঠা, বিঘা ও বর্গফুটে সঠিক ক্ষেত্রফল এবং ভরাটের আয়তন হিসাব।</p>
+          <div class="rule"></div>
+        </div>
+        <div class="service">
+          <div class="service-top">
+            <svg viewBox="0 0 24 24"><path d="M9 3 3 5.5v15L9 18l6 3 6-2.5v-15L15 6 9 3Z"/><path d="M9 3v15M15 6v15"/></svg>
+            <span class="no">04</span>
+          </div>
+          <h3>মৌজা ম্যাপ ও দাগ অনুযায়ী পরিমাপ</h3>
+          <div class="en">Mouza Map &amp; Dag</div>
+          <p>মৌজা ম্যাপ, খতিয়ান ও দাগ নম্বর অনুযায়ী জমি শনাক্ত ও সীমানা নির্ধারণ।</p>
+          <div class="rule"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="process" class="sec sec-card">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <div class="eyebrow">How It Works</div>
+          <h2>কাজের ধাপ</h2>
+        </div>
+        <p class="sec-note">মাত্র তিন ধাপে জমির জরিপ সম্পন্ন — শুরু থেকে রিপোর্ট হাতে পাওয়া পর্যন্ত।</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="top">
+            <div class="icon"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.3 7.6L3 21l1.9-5.7A8.5 8.5 0 1 1 21 11.5Z"/></svg></div>
+            <div class="no">Step 01</div>
+          </div>
+          <h3>যোগাযোগ করুন</h3>
+          <p>WhatsApp বা ফোনে জমির মৌজা, দাগ নম্বর ও অবস্থান জানিয়ে কথা বলুন।</p>
+          <span class="ghost">01</span>
+        </div>
+        <div class="step">
+          <div class="top">
+            <div class="icon"><svg viewBox="0 0 24 24"><path d="M3 20h18M6 20V9l6-4 6 4v11"/></svg></div>
+            <div class="no">Step 02</div>
+          </div>
+          <h3>জমি পরিমাপ</h3>
+          <p>নির্ধারিত দিনে সরেজমিনে Total Station দিয়ে জমি জরিপ ও মাপজোখ।</p>
+          <span class="ghost">02</span>
+        </div>
+        <div class="step">
+          <div class="top">
+            <div class="icon"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></div>
+            <div class="no">Step 03</div>
+          </div>
+          <h3>নকশা ও রিপোর্ট</h3>
+          <p>পেন্টাগ্রাফ নকশা, ক্ষেত্রফল হিসাব ও ডিজিটাল ম্যাপ ফাইল হস্তান্তর।</p>
+          <span class="ghost">03</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="contact-bg"></div>
+    <div class="wrap contact-in">
+      <div class="contact-cols">
+        <div>
+          <div class="eyebrow">Contact · যোগাযোগ</div>
+          <h2>জমির জরিপ দরকার?<br>আজই মেসেজ দিন।</h2>
+          <p class="lead">WhatsApp এ জমির মৌজা, দাগ নম্বর আর এলাকার নাম পাঠালেই প্রাথমিক পরামর্শ ও সময় জানিয়ে দেওয়া হবে।</p>
+          <div class="actions">
+            <a class="btn btn-light" href="https://wa.me/8801616355160?text=%E0%A6%86%E0%A6%B8%E0%A6%B8%E0%A6%BE%E0%A6%B2%E0%A6%BE%E0%A6%AE%E0%A7%81%20%E0%A6%86%E0%A6%B2%E0%A6%BE%E0%A6%87%E0%A6%95%E0%A7%81%E0%A6%AE%2C%20%E0%A6%86%E0%A6%AE%E0%A6%BF%20%E0%A6%9C%E0%A6%AE%E0%A6%BF%E0%A6%B0%20%E0%A6%9C%E0%A6%B0%E0%A6%BF%E0%A6%AA%20%E0%A6%95%E0%A6%B0%E0%A6%BE%E0%A6%A4%E0%A7%87%20%E0%A6%9A%E0%A6%BE%E0%A6%87%E0%A5%A4" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0057B7" stroke-width="1.8"><path d="M21 11.5a8.5 8.5 0 0 1-12.3 7.6L3 21l1.9-5.7A8.5 8.5 0 1 1 21 11.5Z"/></svg>
+              WhatsApp · 01616355160
+            </a>
+            <a class="btn btn-outline" href="tel:+8801616355160">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2.1Z"/></svg>
+              কল করুন
+            </a>
+          </div>
+        </div>
+        <div class="info">
+          <div class="info-row">
+            <svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.3 7.6L3 21l1.9-5.7A8.5 8.5 0 1 1 21 11.5Z"/></svg>
+            <div><div class="k">WhatsApp</div><div class="v">01616355160</div></div>
+          </div>
+          <div class="info-row">
+            <svg viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div><div class="k">Service Area</div><div class="v">সারা বাংলাদেশে সেবা</div></div>
+          </div>
+          <div class="info-row">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            <div><div class="k">Available</div><div class="v">সকাল ৮টা – রাত ১০টা</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="brand">
+        <span class="monogram">RH</span>
+        <span>
+          <span class="brand-name">Rakib Hussain</span>
+          <span class="brand-sub">Land Surveyor · ভূমি জরিপ বিশেষজ্ঞ</span>
+        </span>
+      </div>
+      <div class="foot-links">
+        <a href="#services">Services</a>
+        <a href="about.html">About</a>
+        <a href="#contact">Contact</a>
+        <a href="tel:+8801616355160">01616355160</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p>© 2026 Rakib Hussain · All rights reserved</p>
+      <p>নির্ভুল পরিমাপ · বিশ্বস্ত সেবা</p>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/8801616355160?text=%E0%A6%86%E0%A6%B8%E0%A6%B8%E0%A6%BE%E0%A6%B2%E0%A6%BE%E0%A6%AE%E0%A7%81%20%E0%A6%86%E0%A6%B2%E0%A6%BE%E0%A6%87%E0%A6%95%E0%A7%81%E0%A6%AE%2C%20%E0%A6%86%E0%A6%AE%E0%A6%BF%20%E0%A6%9C%E0%A6%AE%E0%A6%BF%E0%A6%B0%20%E0%A6%9C%E0%A6%B0%E0%A6%BF%E0%A6%AA%20%E0%A6%95%E0%A6%B0%E0%A6%BE%E0%A6%A4%E0%A7%87%20%E0%A6%9A%E0%A6%BE%E0%A6%87%E0%A5%A4" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <span class="wa-icon">
+    <svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.3 7.6L3 21l1.9-5.7A8.5 8.5 0 1 1 21 11.5Z"/></svg>
+    <span class="pulse"></span>
+    <span class="live"></span>
+  </span>
+  <span class="wa-text"><b>Live chat · Rakib</b><span>WhatsApp এ মেসেজ দিন</span></span>
+</a>
+
+</body>
+</html>
